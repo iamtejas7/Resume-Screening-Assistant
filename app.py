@@ -24,7 +24,7 @@ def main():
     if submit:
         with st.spinner('Wait for it...'):
 
-            #Creating a unique ID, so that we can use to query and get only the user uploaded documents from PINECONE vector store
+            #Creating a unique ID, so that we can use to query and get only the user uploaded documents from vector store
             st.session_state['unique_id']=uuid.uuid4().hex
 
             #Create a documents list out of all the user uploaded pdf files
@@ -36,10 +36,10 @@ def main():
             #Create embeddings instance
             embeddings=create_embeddings_load_data()
 
-            #Push data to PINECONE
+            #Push data to vector store
             push_to_faiss(embeddings,final_docs_list)
 
-            #Fecth relavant documents from PINECONE
+            #Fecth relavant documents from vector store
             relavant_docs=similar_docs(job_description,document_count,"faiss_index",embeddings,st.session_state['unique_id'])
 
             #t.write(relavant_docs)

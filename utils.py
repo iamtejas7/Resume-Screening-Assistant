@@ -1,7 +1,6 @@
 from langchain.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain.embeddings.sentence_transformer import SentenceTransformerEmbeddings
 from langchain.schema import Document
 from pypdf import PdfReader
 from langchain.chains.summarize import load_summarize_chain
